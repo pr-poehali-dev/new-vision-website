@@ -189,8 +189,8 @@ export default function Index() {
               alt="Глаз"
               style={{
                 width: "clamp(240px, 40vw, 480px)",
-                mixBlendMode: "screen",
-                filter: "invert(1) brightness(0.75)",
+                mixBlendMode: "multiply",
+                filter: "invert(1) brightness(0.85) sepia(0.15) hue-rotate(180deg)",
               }}
             />
             <svg viewBox="0 0 500 320" style={{ display: "none" }}>
