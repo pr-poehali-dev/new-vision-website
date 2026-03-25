@@ -150,7 +150,7 @@ export default function Index() {
             style={{ fontSize: "clamp(4rem, 11vw, 9rem)", color: "#ffffff" }}
           >
             Новый<br />
-            <span style={{ color: "#b8c4d0", fontStyle: "italic" }}>Взгляд</span>
+            <span style={{ color: "#b8c4d0" }}>Взгляд</span>
           </h1>
 
           <div
