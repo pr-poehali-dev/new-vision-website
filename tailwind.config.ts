@@ -19,9 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				cormorant: ['"Cormorant Garamond"', 'serif'],
+				roboto: ['Roboto', 'sans-serif'],
 				montserrat: ['Montserrat', 'sans-serif'],
-				pinyon: ['"Pinyon Script"', 'cursive'],
 			},
 			colors: {
 				navy: {

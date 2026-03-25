@@ -71,7 +71,7 @@ export default function Index() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
           <button onClick={() => scrollTo("home")} className="flex flex-col items-start">
-            <span className="font-pinyon text-2xl tracking-widest leading-none" style={{ color: "#b8c4d0" }}>
+            <span className="font-roboto text-2xl tracking-widest leading-none" style={{ color: "#b8c4d0" }}>
               НОВЫЙ ВЗГЛЯД
             </span>
             <span className="text-[10px] tracking-[0.25em] mt-0.5 font-montserrat font-light" style={{ color: "rgba(221,230,238,0.5)" }}>
@@ -146,7 +146,7 @@ export default function Index() {
           </p>
 
           <h1
-            className="animate-fade-up-delay opacity-0 font-pinyon font-light leading-[0.88] mb-8"
+            className="animate-fade-up-delay opacity-0 font-roboto font-light leading-[0.88] mb-8"
             style={{ fontSize: "clamp(4rem, 11vw, 9rem)", color: "#ffffff" }}
           >
             Новый<br />
@@ -158,7 +158,7 @@ export default function Index() {
             style={{ maxWidth: 100, background: "linear-gradient(90deg, transparent, #b8c4d0, transparent)" }}
           />
 
-          <p className="animate-fade-up-delay2 opacity-0 font-pinyon font-light text-xl md:text-2xl leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <p className="animate-fade-up-delay2 opacity-0 font-roboto font-light text-xl md:text-2xl leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.5)" }}>
             Мастерство. Точность. Забота о каждом пациенте.
           </p>
 
@@ -195,7 +195,7 @@ export default function Index() {
           >
             <p className="text-[10px] tracking-[0.35em] mb-6" style={{ color: "rgba(184,196,208,0.6)" }}>О КЛИНИКЕ</p>
             <h2
-              className="font-pinyon font-light leading-tight mb-8"
+              className="font-roboto font-light leading-tight mb-8"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "#ffffff" }}
             >
               Точность взгляда —<br />
@@ -249,7 +249,7 @@ export default function Index() {
               <div className="w-12 h-12 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110" style={{ border: "1px solid rgba(184,196,208,0.3)" }}>
                 <Icon name={item.icon} size={20} style={{ color: "#b8c4d0" }} />
               </div>
-              <h3 className="font-pinyon text-xl font-light mb-3" style={{ color: "#ffffff" }}>{item.title}</h3>
+              <h3 className="font-roboto text-xl font-light mb-3" style={{ color: "#ffffff" }}>{item.title}</h3>
               <p className="font-light text-sm leading-7" style={{ color: "rgba(255,255,255,0.4)" }}>{item.desc}</p>
             </div>
           ))}
@@ -267,7 +267,7 @@ export default function Index() {
             style={{ opacity: contactsSection.inView ? 1 : 0, transform: contactsSection.inView ? "translateY(0)" : "translateY(30px)" }}
           >
             <p className="text-[10px] tracking-[0.35em] mb-6" style={{ color: "rgba(184,196,208,0.6)" }}>СВЯЗЬ С НАМИ</p>
-            <h2 className="font-pinyon font-light" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "#ffffff" }}>
+            <h2 className="font-roboto font-light" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "#ffffff" }}>
               Контакты
             </h2>
             <div className="h-px mx-auto mt-6" style={{ width: 60, background: "#b8c4d0" }} />
@@ -297,7 +297,7 @@ export default function Index() {
                 <div className="w-14 h-14 flex items-center justify-center mb-6 rounded-full" style={{ border: "1px solid rgba(184,196,208,0.3)" }}>
                   <Icon name={item.icon} size={20} style={{ color: "#b8c4d0" }} />
                 </div>
-                <h3 className="font-pinyon text-lg font-light mb-4" style={{ color: "rgba(221,230,238,0.8)" }}>{item.title}</h3>
+                <h3 className="font-roboto text-lg font-light mb-4" style={{ color: "rgba(221,230,238,0.8)" }}>{item.title}</h3>
                 {item.lines.map((line, j) => (
                   <p key={j} className="font-light text-sm" style={{ color: j === 0 ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.3)", marginBottom: j === 0 ? 4 : 0 }}>
                     {line}
@@ -322,7 +322,7 @@ export default function Index() {
 
       {/* FOOTER */}
       <footer className="py-10 text-center" style={{ borderTop: "1px solid rgba(184,196,208,0.1)" }}>
-        <p className="font-pinyon text-2xl tracking-widest mb-2" style={{ color: "#b8c4d0" }}>НОВЫЙ ВЗГЛЯД</p>
+        <p className="font-roboto text-2xl tracking-widest mb-2" style={{ color: "#b8c4d0" }}>НОВЫЙ ВЗГЛЯД</p>
         <p className="font-light text-xs tracking-widest" style={{ color: "rgba(255,255,255,0.2)" }}>
           © 2026 — ОФТАЛЬМОЛОГИЧЕСКАЯ КЛИНИКА
         </p>
