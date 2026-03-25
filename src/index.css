@@ -97,5 +97,58 @@
 
   body {
     @apply bg-background text-foreground;
+    background: #060d1f;
   }
+}
+
+:root {
+  --navy-bg: #060d1f;
+  --gold: #d4a843;
+  --gold-light: #f0d080;
+}
+
+.font-cormorant {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes line-grow {
+  from {
+    opacity: 0;
+    max-width: 0;
+  }
+  to {
+    opacity: 1;
+    max-width: 100px;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.9s ease-out 0.1s forwards;
+}
+
+.animate-fade-up-delay {
+  animation: fade-up 0.9s ease-out 0.4s forwards;
+}
+
+.animate-fade-up-delay2 {
+  animation: fade-up 0.9s ease-out 0.7s forwards;
+}
+
+.animate-line-grow {
+  animation: line-grow 1.2s ease-out 0.8s forwards;
 }
