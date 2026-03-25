@@ -185,110 +185,225 @@ export default function Index() {
           {/* RIGHT: анимированный глаз */}
           <div className="flex-1 flex items-center justify-center md:justify-end animate-fade-up-delay2 opacity-0">
             <svg
-              viewBox="0 0 200 120"
-              style={{ width: "clamp(200px, 35vw, 420px)", filter: "drop-shadow(0 0 32px rgba(184,196,208,0.25))" }}
+              viewBox="0 0 400 240"
+              style={{ width: "clamp(220px, 38vw, 460px)", filter: "drop-shadow(0 0 40px rgba(184,196,208,0.18))" }}
             >
               <defs>
-                <radialGradient id="irisGrad" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#7a9bb5" />
-                  <stop offset="60%" stopColor="#3d6a8a" />
-                  <stop offset="100%" stopColor="#1a3a52" />
+                {/* белок */}
+                <radialGradient id="scleraGrad" cx="50%" cy="45%" r="55%">
+                  <stop offset="0%" stopColor="#e8eef4" />
+                  <stop offset="70%" stopColor="#ccd6e0" />
+                  <stop offset="100%" stopColor="#a8b8c8" />
                 </radialGradient>
-                <radialGradient id="pupilGrad" cx="40%" cy="38%" r="60%">
-                  <stop offset="0%" stopColor="#2a2a3a" />
-                  <stop offset="100%" stopColor="#060d1f" />
+                {/* радужка — голубо-стальной */}
+                <radialGradient id="irisGrad2" cx="42%" cy="38%" r="58%">
+                  <stop offset="0%" stopColor="#8fb8d8" />
+                  <stop offset="30%" stopColor="#4a85a8" />
+                  <stop offset="65%" stopColor="#2a5f80" />
+                  <stop offset="100%" stopColor="#0d2a3d" />
                 </radialGradient>
-                <clipPath id="eyeClip">
-                  <path d="M 20 60 Q 100 10 180 60 Q 100 110 20 60 Z" />
+                {/* зрачок */}
+                <radialGradient id="pupilGrad2" cx="38%" cy="35%" r="65%">
+                  <stop offset="0%" stopColor="#1a1a2e" />
+                  <stop offset="100%" stopColor="#040810" />
+                </radialGradient>
+                {/* тень века сверху */}
+                <radialGradient id="lidShadow" cx="50%" cy="0%" r="80%">
+                  <stop offset="0%" stopColor="rgba(4,12,28,0.7)" />
+                  <stop offset="100%" stopColor="rgba(4,12,28,0)" />
+                </radialGradient>
+                {/* форма глаза — клип */}
+                <clipPath id="eyeShape">
+                  <path d="M 30 120 C 80 30, 320 30, 370 120 C 320 210, 80 210, 30 120 Z" />
                 </clipPath>
+                {/* клип для век (закрытый) */}
+                <clipPath id="lidClipTop">
+                  <rect x="0" y="0" width="400" height="120">
+                    <animate
+                      attributeName="height"
+                      from="120"
+                      to="0"
+                      dur="0.01s"
+                      begin="0s"
+                      fill="freeze"
+                    />
+                    <animate
+                      attributeName="height"
+                      from="0"
+                      to="120"
+                      dur="1.6s"
+                      begin="0.4s"
+                      fill="freeze"
+                      calcMode="spline"
+                      keySplines="0.25 0.1 0.25 1"
+                      keyTimes="0;1"
+                    />
+                  </rect>
+                </clipPath>
+                <clipPath id="lidClipBottom">
+                  <rect x="0" y="120" width="400" height="120">
+                    <animate
+                      attributeName="y"
+                      from="120"
+                      to="240"
+                      dur="0.01s"
+                      begin="0s"
+                      fill="freeze"
+                    />
+                    <animate
+                      attributeName="y"
+                      from="240"
+                      to="120"
+                      dur="1.6s"
+                      begin="0.4s"
+                      fill="freeze"
+                      calcMode="spline"
+                      keySplines="0.25 0.1 0.25 1"
+                      keyTimes="0;1"
+                    />
+                  </rect>
+                </clipPath>
+                <filter id="blurSoft">
+                  <feGaussianBlur stdDeviation="1.5" />
+                </filter>
+                <filter id="irisTexture">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" seed="3" result="noise" />
+                  <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise" />
+                  <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="blend" />
+                  <feComposite in="blend" in2="SourceGraphic" operator="in" />
+                </filter>
               </defs>
 
-              {/* вся группа с миганием */}
-              <g style={{ transformOrigin: "100px 60px" }}>
-                <animateTransform
-                  attributeName="transform"
-                  type="scale"
-                  additive="sum"
-                  values="1 1; 1 1; 1 0.08; 1 1"
-                  keyTimes="0; 0.88; 0.94; 1"
-                  dur="5s"
-                  begin="3s"
-                  repeatCount="indefinite"
+              {/* === БЕЛОК (видимый через форму глаза) === */}
+              <ellipse cx="200" cy="120" rx="175" ry="90" fill="url(#scleraGrad)" clipPath="url(#eyeShape)" />
+
+              {/* прожилки белка */}
+              <g clipPath="url(#eyeShape)" opacity="0.18">
+                <line x1="100" y1="100" x2="170" y2="118" stroke="#c44" strokeWidth="0.8" />
+                <line x1="90" y1="130" x2="165" y2="122" stroke="#c44" strokeWidth="0.6" />
+                <line x1="300" y1="105" x2="235" y2="118" stroke="#c44" strokeWidth="0.7" />
+                <line x1="310" y1="135" x2="238" y2="120" stroke="#c44" strokeWidth="0.5" />
+              </g>
+
+              {/* === РАДУЖКА === */}
+              <g clipPath="url(#eyeShape)">
+                <circle cx="200" cy="120" r="72" fill="url(#irisGrad2)" />
+                {/* текстура радужки — лучи */}
+                {Array.from({ length: 24 }).map((_, i) => {
+                  const angle = (i * 360) / 24;
+                  const rad = (angle * Math.PI) / 180;
+                  return (
+                    <line
+                      key={i}
+                      x1={200 + Math.cos(rad) * 20}
+                      y1={120 + Math.sin(rad) * 20}
+                      x2={200 + Math.cos(rad) * 70}
+                      y2={120 + Math.sin(rad) * 70}
+                      stroke="rgba(255,255,255,0.07)"
+                      strokeWidth="1.2"
+                    />
+                  );
+                })}
+                {/* внешний ободок радужки */}
+                <circle cx="200" cy="120" r="72" fill="none" stroke="rgba(10,30,50,0.6)" strokeWidth="2.5" />
+                {/* внутренний ободок (лимбус) */}
+                <circle cx="200" cy="120" r="66" fill="none" stroke="rgba(0,0,0,0.25)" strokeWidth="1" />
+              </g>
+
+              {/* === ЗРАЧОК === */}
+              <g clipPath="url(#eyeShape)">
+                <circle cx="200" cy="120" r="34" fill="url(#pupilGrad2)" />
+                {/* блик на зрачке */}
+                <ellipse cx="186" cy="108" rx="9" ry="6" fill="rgba(255,255,255,0.55)" style={{ filter: "blur(2px)" }} />
+                <ellipse cx="218" cy="132" rx="4" ry="3" fill="rgba(255,255,255,0.15)" style={{ filter: "blur(1px)" }} />
+              </g>
+
+              {/* === ТЕНЬ ОТ ВЕРХНЕГО ВЕКА === */}
+              <ellipse cx="200" cy="60" rx="170" ry="60" fill="url(#lidShadow)" clipPath="url(#eyeShape)" />
+
+              {/* === ВЕРХНЕЕ ВЕКО (анимированное) === */}
+              <g clipPath="url(#lidClipTop)">
+                <path
+                  d="M 30 120 C 80 30, 320 30, 370 120"
+                  fill="#1a2a3a"
+                  stroke="none"
                 />
-
-                {/* фон глаза */}
+                {/* край верхнего века */}
                 <path
-                  d="M 20 60 Q 100 10 180 60 Q 100 110 20 60 Z"
-                  fill="rgba(221,230,238,0.04)"
+                  d="M 30 120 C 80 30, 320 30, 370 120"
+                  fill="none"
+                  stroke="#8a9baa"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
                 />
-
-                {/* радужка */}
-                <g className="eye-iris" clipPath="url(#eyeClip)">
-                  <circle cx="100" cy="60" r="30" fill="url(#irisGrad)" />
-                  <circle cx="100" cy="60" r="30" fill="none" stroke="rgba(184,196,208,0.2)" strokeWidth="1" />
-                  <circle cx="88" cy="50" r="6" fill="rgba(255,255,255,0.12)" />
-                </g>
-
-                {/* зрачок */}
-                <g className="eye-pupil" clipPath="url(#eyeClip)">
-                  <circle cx="100" cy="60" r="14" fill="url(#pupilGrad)" />
-                  <circle cx="94" cy="54" r="3" fill="rgba(255,255,255,0.35)" />
-                </g>
-
-                {/* верхнее веко */}
-                <path
-                  d="M 20 60 Q 100 60 180 60"
-                  fill="none"
-                  stroke="#b8c4d0"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                >
-                  <animate
-                    attributeName="d"
-                    from="M 20 60 Q 100 60 180 60"
-                    to="M 20 60 Q 100 10 180 60"
-                    dur="1.4s"
-                    begin="0.5s"
-                    fill="freeze"
-                    calcMode="spline"
-                    keySplines="0.4 0 0.2 1"
-                    keyTimes="0;1"
-                  />
-                </path>
-
-                {/* нижнее веко */}
-                <path
-                  d="M 20 60 Q 100 60 180 60"
-                  fill="none"
-                  stroke="rgba(184,196,208,0.5)"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                >
-                  <animate
-                    attributeName="d"
-                    from="M 20 60 Q 100 60 180 60"
-                    to="M 20 60 Q 100 110 180 60"
-                    dur="1.4s"
-                    begin="0.5s"
-                    fill="freeze"
-                    calcMode="spline"
-                    keySplines="0.4 0 0.2 1"
-                    keyTimes="0;1"
-                  />
-                </path>
-
                 {/* ресницы верхние */}
-                <g className="eye-iris" style={{ transformOrigin: "100px 60px" }}>
-                  {[
-                    { x1: 55, y1: 26, x2: 51, y2: 16 },
-                    { x1: 75, y1: 18, x2: 73, y2: 7 },
-                    { x1: 100, y1: 14, x2: 100, y2: 3 },
-                    { x1: 125, y1: 18, x2: 127, y2: 7 },
-                    { x1: 145, y1: 26, x2: 149, y2: 16 },
-                  ].map((l, i) => (
-                    <line key={i} x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2} stroke="rgba(184,196,208,0.6)" strokeWidth="1.2" strokeLinecap="round" />
-                  ))}
-                </g>
+                {[
+                  { cx: 72, cy: 68, rx: 2, ry: 14, rotate: -30 },
+                  { cx: 108, cy: 46, rx: 2, ry: 16, rotate: -15 },
+                  { cx: 148, cy: 34, rx: 1.8, ry: 15, rotate: -5 },
+                  { cx: 190, cy: 30, rx: 1.8, ry: 16, rotate: 0 },
+                  { cx: 232, cy: 33, rx: 1.8, ry: 15, rotate: 5 },
+                  { cx: 270, cy: 44, rx: 2, ry: 16, rotate: 14 },
+                  { cx: 306, cy: 62, rx: 2, ry: 15, rotate: 26 },
+                  { cx: 338, cy: 85, rx: 2, ry: 13, rotate: 38 },
+                ].map((l, i) => (
+                  <ellipse
+                    key={i}
+                    cx={l.cx} cy={l.cy} rx={l.rx} ry={l.ry}
+                    fill="#0d1e2e"
+                    transform={`rotate(${l.rotate}, ${l.cx}, ${l.cy})`}
+                  />
+                ))}
+              </g>
+
+              {/* === НИЖНЕЕ ВЕКО (анимированное) === */}
+              <g clipPath="url(#lidClipBottom)">
+                <path
+                  d="M 30 120 C 80 210, 320 210, 370 120"
+                  fill="#1a2a3a"
+                  stroke="none"
+                />
+                {/* край нижнего века */}
+                <path
+                  d="M 30 120 C 80 210, 320 210, 370 120"
+                  fill="none"
+                  stroke="#6a7f90"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
+              </g>
+
+              {/* === УГОЛКИ ГЛАЗА === */}
+              <ellipse cx="36" cy="120" rx="10" ry="6" fill="rgba(180,100,100,0.35)" clipPath="url(#eyeShape)" />
+              <ellipse cx="364" cy="120" rx="8" ry="5" fill="rgba(180,100,100,0.25)" clipPath="url(#eyeShape)" />
+
+              {/* === МОРГАНИЕ === */}
+              <g>
+                {/* верхнее веко моргает */}
+                <path d="M 30 120 C 80 30, 320 30, 370 120" fill="#060d1f" clipPath="url(#eyeShape)">
+                  <animate
+                    attributeName="d"
+                    values="M 30 120 C 80 30, 320 30, 370 120;M 30 120 C 80 30, 320 30, 370 120;M 30 120 C 80 120, 320 120, 370 120;M 30 120 C 80 30, 320 30, 370 120"
+                    keyTimes="0;0.88;0.93;1"
+                    dur="6s"
+                    begin="3s"
+                    repeatCount="indefinite"
+                    calcMode="spline"
+                    keySplines="0 0 1 1;0.4 0 0.2 1;0.4 0 0.2 1"
+                  />
+                </path>
+                <path d="M 30 120 C 80 210, 320 210, 370 120" fill="#060d1f" clipPath="url(#eyeShape)">
+                  <animate
+                    attributeName="d"
+                    values="M 30 120 C 80 210, 320 210, 370 120;M 30 120 C 80 210, 320 210, 370 120;M 30 120 C 80 120, 320 120, 370 120;M 30 120 C 80 210, 320 210, 370 120"
+                    keyTimes="0;0.88;0.93;1"
+                    dur="6s"
+                    begin="3s"
+                    repeatCount="indefinite"
+                    calcMode="spline"
+                    keySplines="0 0 1 1;0.4 0 0.2 1;0.4 0 0.2 1"
+                  />
+                </path>
               </g>
             </svg>
           </div>
