@@ -140,43 +140,157 @@ export default function Index() {
 
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(184,196,208,0.35), transparent)" }} />
 
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-          <p className="animate-fade-up opacity-0 text-[10px] md:text-xs tracking-[0.45em] mb-8 font-light" style={{ color: "rgba(221,230,238,0.55)" }}>
-            ОФТАЛЬМОЛОГИЧЕСКАЯ КЛИНИКА
-          </p>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0">
+          {/* LEFT: текст */}
+          <div className="flex-1 text-left">
+            <p className="animate-fade-up opacity-0 text-[10px] md:text-xs tracking-[0.45em] mb-8 font-light" style={{ color: "rgba(221,230,238,0.55)" }}>
+              ОФТАЛЬМОЛОГИЧЕСКАЯ КЛИНИКА
+            </p>
 
-          <h1
-            className="animate-fade-up-delay opacity-0 font-roboto font-light leading-[0.88] mb-8"
-            style={{ fontSize: "clamp(4rem, 11vw, 9rem)", color: "#ffffff" }}
-          >
-            Новый<br />
-            <span style={{ color: "#b8c4d0" }}>Взгляд</span>
-          </h1>
-
-          <div
-            className="mx-auto my-8 h-px animate-line-grow opacity-0"
-            style={{ maxWidth: 100, background: "linear-gradient(90deg, transparent, #b8c4d0, transparent)" }}
-          />
-
-          <p className="animate-fade-up-delay2 opacity-0 font-roboto font-light text-xl md:text-2xl leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.5)" }}>
-            Мастерство. Точность. Забота о каждом пациенте.
-          </p>
-
-          <div className="animate-fade-up-delay2 opacity-0 mt-14 flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => scrollTo("contacts")}
-              className="px-10 py-4 text-xs tracking-[0.25em] font-medium transition-all duration-300 hover:scale-105 hover:brightness-110"
-              style={{ background: "linear-gradient(135deg, #8a9baa, #b8c4d0)", color: "#03060f" }}
+            <h1
+              className="animate-fade-up-delay opacity-0 font-roboto font-light leading-[0.88] mb-8"
+              style={{ fontSize: "clamp(3.5rem, 9vw, 8rem)", color: "#ffffff" }}
             >
-              ЗАПИСАТЬСЯ НА ПРИЁМ
-            </button>
-            <button
-              onClick={() => scrollTo("about")}
-              className="px-10 py-4 text-xs tracking-[0.25em] font-light transition-all duration-300 hover:scale-105"
-              style={{ border: "1px solid rgba(184,196,208,0.4)", color: "rgba(221,230,238,0.8)", background: "transparent" }}
+              Новый<br />
+              <span style={{ color: "#b8c4d0" }}>Взгляд</span>
+            </h1>
+
+            <div
+              className="my-8 h-px animate-line-grow opacity-0"
+              style={{ maxWidth: 100, background: "linear-gradient(90deg, transparent, #b8c4d0, transparent)" }}
+            />
+
+            <p className="animate-fade-up-delay2 opacity-0 font-roboto font-light text-lg md:text-xl leading-relaxed max-w-md" style={{ color: "rgba(255,255,255,0.5)" }}>
+              Мастерство. Точность. Забота о каждом пациенте.
+            </p>
+
+            <div className="animate-fade-up-delay2 opacity-0 mt-12 flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={() => scrollTo("contacts")}
+                className="px-10 py-4 text-xs tracking-[0.25em] font-medium transition-all duration-300 hover:scale-105 hover:brightness-110"
+                style={{ background: "linear-gradient(135deg, #8a9baa, #b8c4d0)", color: "#03060f" }}
+              >
+                ЗАПИСАТЬСЯ НА ПРИЁМ
+              </button>
+              <button
+                onClick={() => scrollTo("about")}
+                className="px-10 py-4 text-xs tracking-[0.25em] font-light transition-all duration-300 hover:scale-105"
+                style={{ border: "1px solid rgba(184,196,208,0.4)", color: "rgba(221,230,238,0.8)", background: "transparent" }}
+              >
+                О КЛИНИКЕ
+              </button>
+            </div>
+          </div>
+
+          {/* RIGHT: анимированный глаз */}
+          <div className="flex-1 flex items-center justify-center md:justify-end animate-fade-up-delay2 opacity-0">
+            <svg
+              viewBox="0 0 200 120"
+              style={{ width: "clamp(200px, 35vw, 420px)", filter: "drop-shadow(0 0 32px rgba(184,196,208,0.25))" }}
             >
-              О КЛИНИКЕ
-            </button>
+              <defs>
+                <radialGradient id="irisGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#7a9bb5" />
+                  <stop offset="60%" stopColor="#3d6a8a" />
+                  <stop offset="100%" stopColor="#1a3a52" />
+                </radialGradient>
+                <radialGradient id="pupilGrad" cx="40%" cy="38%" r="60%">
+                  <stop offset="0%" stopColor="#2a2a3a" />
+                  <stop offset="100%" stopColor="#060d1f" />
+                </radialGradient>
+                <clipPath id="eyeClip">
+                  <path d="M 20 60 Q 100 10 180 60 Q 100 110 20 60 Z" />
+                </clipPath>
+              </defs>
+
+              {/* вся группа с миганием */}
+              <g style={{ transformOrigin: "100px 60px" }}>
+                <animateTransform
+                  attributeName="transform"
+                  type="scale"
+                  additive="sum"
+                  values="1 1; 1 1; 1 0.08; 1 1"
+                  keyTimes="0; 0.88; 0.94; 1"
+                  dur="5s"
+                  begin="3s"
+                  repeatCount="indefinite"
+                />
+
+                {/* фон глаза */}
+                <path
+                  d="M 20 60 Q 100 10 180 60 Q 100 110 20 60 Z"
+                  fill="rgba(221,230,238,0.04)"
+                />
+
+                {/* радужка */}
+                <g className="eye-iris" clipPath="url(#eyeClip)">
+                  <circle cx="100" cy="60" r="30" fill="url(#irisGrad)" />
+                  <circle cx="100" cy="60" r="30" fill="none" stroke="rgba(184,196,208,0.2)" strokeWidth="1" />
+                  <circle cx="88" cy="50" r="6" fill="rgba(255,255,255,0.12)" />
+                </g>
+
+                {/* зрачок */}
+                <g className="eye-pupil" clipPath="url(#eyeClip)">
+                  <circle cx="100" cy="60" r="14" fill="url(#pupilGrad)" />
+                  <circle cx="94" cy="54" r="3" fill="rgba(255,255,255,0.35)" />
+                </g>
+
+                {/* верхнее веко */}
+                <path
+                  d="M 20 60 Q 100 60 180 60"
+                  fill="none"
+                  stroke="#b8c4d0"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                >
+                  <animate
+                    attributeName="d"
+                    from="M 20 60 Q 100 60 180 60"
+                    to="M 20 60 Q 100 10 180 60"
+                    dur="1.4s"
+                    begin="0.5s"
+                    fill="freeze"
+                    calcMode="spline"
+                    keySplines="0.4 0 0.2 1"
+                    keyTimes="0;1"
+                  />
+                </path>
+
+                {/* нижнее веко */}
+                <path
+                  d="M 20 60 Q 100 60 180 60"
+                  fill="none"
+                  stroke="rgba(184,196,208,0.5)"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                >
+                  <animate
+                    attributeName="d"
+                    from="M 20 60 Q 100 60 180 60"
+                    to="M 20 60 Q 100 110 180 60"
+                    dur="1.4s"
+                    begin="0.5s"
+                    fill="freeze"
+                    calcMode="spline"
+                    keySplines="0.4 0 0.2 1"
+                    keyTimes="0;1"
+                  />
+                </path>
+
+                {/* ресницы верхние */}
+                <g className="eye-iris" style={{ transformOrigin: "100px 60px" }}>
+                  {[
+                    { x1: 55, y1: 26, x2: 51, y2: 16 },
+                    { x1: 75, y1: 18, x2: 73, y2: 7 },
+                    { x1: 100, y1: 14, x2: 100, y2: 3 },
+                    { x1: 125, y1: 18, x2: 127, y2: 7 },
+                    { x1: 145, y1: 26, x2: 149, y2: 16 },
+                  ].map((l, i) => (
+                    <line key={i} x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2} stroke="rgba(184,196,208,0.6)" strokeWidth="1.2" strokeLinecap="round" />
+                  ))}
+                </g>
+              </g>
+            </svg>
           </div>
         </div>
 

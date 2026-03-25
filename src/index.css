@@ -152,3 +152,58 @@
 .animate-line-grow {
   animation: line-grow 1.2s ease-out 0.8s forwards;
 }
+
+/* Eye animation */
+@keyframes pupil-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  60% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes iris-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  55% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blink {
+  0%,
+  90%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.08);
+  }
+}
+
+.eye-iris {
+  transform-origin: 100px 60px;
+  animation: iris-appear 1.8s ease-out forwards;
+}
+.eye-pupil {
+  transform-origin: 100px 60px;
+  animation: pupil-appear 2s ease-out forwards;
+}
+.eye-group {
+  transform-origin: 100px 60px;
+  animation: blink 5s ease-in-out 3s infinite;
+}
