@@ -182,9 +182,18 @@ export default function Index() {
             </div>
           </div>
 
-          {/* RIGHT: анимированный женский глаз */}
+          {/* RIGHT: картинка глаза */}
           <div className="flex-1 flex items-center justify-center md:justify-end animate-fade-up-delay2 opacity-0">
-            <svg viewBox="0 0 500 320" style={{ width: "clamp(240px, 40vw, 500px)", overflow: "visible", filter: "drop-shadow(0 8px 40px rgba(184,196,208,0.22))" }}>
+            <img
+              src="https://cdn.poehali.dev/projects/45137477-19ac-4e06-a094-105134d714a8/bucket/14756ba6-0a5c-4d1c-84b9-a31772404fa5.png"
+              alt="Глаз"
+              style={{
+                width: "clamp(240px, 40vw, 480px)",
+                mixBlendMode: "screen",
+                filter: "invert(1) brightness(0.75)",
+              }}
+            />
+            <svg viewBox="0 0 500 320" style={{ display: "none" }}>
               <defs>
                 {/* белок */}
                 <radialGradient id="sclera" cx="48%" cy="42%" r="60%">
