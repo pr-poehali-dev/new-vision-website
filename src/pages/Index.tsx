@@ -140,50 +140,49 @@ export default function Index() {
 
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(184,196,208,0.35), transparent)" }} />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0">
-          {/* LEFT: текст */}
-          <div className="flex-1 text-left">
-            <p className="animate-fade-up opacity-0 text-[10px] md:text-xs tracking-[0.45em] mb-8 font-light" style={{ color: "rgba(221,230,238,0.55)" }}>
-              ОФТАЛЬМОЛОГИЧЕСКАЯ КЛИНИКА
-            </p>
+        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+          <p className="animate-fade-up opacity-0 text-[10px] md:text-xs tracking-[0.45em] mb-8 font-light" style={{ color: "rgba(221,230,238,0.55)" }}>
+            ОФТАЛЬМОЛОГИЧЕСКАЯ КЛИНИКА
+          </p>
 
-            <h1
-              className="animate-fade-up-delay opacity-0 font-roboto font-light leading-[0.88] mb-8"
-              style={{ fontSize: "clamp(3.5rem, 9vw, 8rem)", color: "#ffffff" }}
+          <h1
+            className="animate-fade-up-delay opacity-0 font-roboto font-light leading-[0.88] mb-8"
+            style={{ fontSize: "clamp(4rem, 11vw, 9rem)", color: "#ffffff" }}
+          >
+            Новый<br />
+            <span style={{ color: "#b8c4d0" }}>Взгляд</span>
+          </h1>
+
+          <div
+            className="mx-auto my-8 h-px animate-line-grow opacity-0"
+            style={{ maxWidth: 100, background: "linear-gradient(90deg, transparent, #b8c4d0, transparent)" }}
+          />
+
+          <p className="animate-fade-up-delay2 opacity-0 font-roboto font-light text-xl md:text-2xl leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.5)" }}>
+            Мастерство. Точность. Забота о каждом пациенте.
+          </p>
+
+          <div className="animate-fade-up-delay2 opacity-0 mt-14 flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => scrollTo("contacts")}
+              className="px-10 py-4 text-xs tracking-[0.25em] font-medium transition-all duration-300 hover:scale-105 hover:brightness-110"
+              style={{ background: "linear-gradient(135deg, #8a9baa, #b8c4d0)", color: "#03060f" }}
             >
-              Новый<br />
-              <span style={{ color: "#b8c4d0" }}>Взгляд</span>
-            </h1>
-
-            <div
-              className="my-8 h-px animate-line-grow opacity-0"
-              style={{ maxWidth: 100, background: "linear-gradient(90deg, transparent, #b8c4d0, transparent)" }}
-            />
-
-            <p className="animate-fade-up-delay2 opacity-0 font-roboto font-light text-lg md:text-xl leading-relaxed max-w-md" style={{ color: "rgba(255,255,255,0.5)" }}>
-              Мастерство. Точность. Забота о каждом пациенте.
-            </p>
-
-            <div className="animate-fade-up-delay2 opacity-0 mt-12 flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={() => scrollTo("contacts")}
-                className="px-10 py-4 text-xs tracking-[0.25em] font-medium transition-all duration-300 hover:scale-105 hover:brightness-110"
-                style={{ background: "linear-gradient(135deg, #8a9baa, #b8c4d0)", color: "#03060f" }}
-              >
-                ЗАПИСАТЬСЯ НА ПРИЁМ
-              </button>
-              <button
-                onClick={() => scrollTo("about")}
-                className="px-10 py-4 text-xs tracking-[0.25em] font-light transition-all duration-300 hover:scale-105"
-                style={{ border: "1px solid rgba(184,196,208,0.4)", color: "rgba(221,230,238,0.8)", background: "transparent" }}
-              >
-                О КЛИНИКЕ
-              </button>
-            </div>
+              ЗАПИСАТЬСЯ НА ПРИЁМ
+            </button>
+            <button
+              onClick={() => scrollTo("about")}
+              className="px-10 py-4 text-xs tracking-[0.25em] font-light transition-all duration-300 hover:scale-105"
+              style={{ border: "1px solid rgba(184,196,208,0.4)", color: "rgba(221,230,238,0.8)", background: "transparent" }}
+            >
+              О КЛИНИКЕ
+            </button>
           </div>
+        </div>
 
-          {/* RIGHT: картинка глаза */}
-          <div className="flex-1 flex items-center justify-center md:justify-end animate-fade-up-delay2 opacity-0">
+        {/* убрано */}
+        <div style={{ display: "none" }}>
+          <div>
             <img
               src="https://cdn.poehali.dev/projects/45137477-19ac-4e06-a094-105134d714a8/bucket/14756ba6-0a5c-4d1c-84b9-a31772404fa5.png"
               alt="Глаз"
