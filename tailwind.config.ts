@@ -21,6 +21,7 @@ export default {
 			fontFamily: {
 				cormorant: ['"Cormorant Garamond"', 'serif'],
 				montserrat: ['Montserrat', 'sans-serif'],
+				pinyon: ['"Pinyon Script"', 'cursive'],
 			},
 			colors: {
 				navy: {
