@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 const CLINIC_IMAGE = "https://cdn.poehali.dev/projects/45137477-19ac-4e06-a094-105134d714a8/files/b9974d9e-dcaf-4fec-80d2-46553221e48f.jpg";
+const ABOUT_IMAGE = "https://cdn.poehali.dev/projects/45137477-19ac-4e06-a094-105134d714a8/bucket/94dee28c-47c9-444f-8015-ebadea09992f.jpeg";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -209,10 +210,10 @@ export default function Index() {
           >
             <div className="absolute -inset-3" style={{ border: "1px solid rgba(107,122,153,0.15)" }} />
             <img
-              src={CLINIC_IMAGE}
+              src={ABOUT_IMAGE}
               alt="Клиника Новый Взгляд"
               className="w-full h-80 object-cover relative z-10"
-              style={{ filter: "brightness(0.9) saturate(0.8)" }}
+              style={{ filter: "brightness(0.95) saturate(0.9)" }}
             />
             <div className="absolute -bottom-4 -right-4 w-24 h-24 z-0" style={{ border: "1px solid rgba(107,122,153,0.2)" }} />
           </div>
