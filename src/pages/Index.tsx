@@ -506,35 +506,7 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Services */}
-        <div ref={servicesSection.ref} className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-0">
-          {[
-            { icon: "Eye", title: "Диагностика", desc: "Полная диагностика зрения на оборудовании последнего поколения" },
-            { icon: "Activity", title: "Лечение", desc: "Консервативное и хирургическое лечение всех патологий глаза" },
-            { icon: "Shield", title: "Профилактика", desc: "Программы по сохранению и поддержанию здоровья зрения" },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="p-10 transition-all duration-700 hover:cursor-default group"
-              style={{
-                borderTop: "1px solid rgba(184,196,208,0.15)",
-                borderLeft: i > 0 ? "1px solid rgba(184,196,208,0.1)" : "none",
-                borderBottom: "1px solid rgba(184,196,208,0.15)",
-                borderRight: i === 2 ? "1px solid rgba(184,196,208,0.15)" : "none",
-                background: "rgba(15,32,72,0.2)",
-                opacity: servicesSection.inView ? 1 : 0,
-                transform: servicesSection.inView ? "translateY(0)" : "translateY(40px)",
-                transitionDelay: `${i * 200}ms`,
-              }}
-            >
-              <div className="w-12 h-12 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110" style={{ border: "1px solid rgba(184,196,208,0.3)" }}>
-                <Icon name={item.icon} size={20} style={{ color: "#b8c4d0" }} />
-              </div>
-              <h3 className="font-roboto text-xl font-light mb-3" style={{ color: "#ffffff" }}>{item.title}</h3>
-              <p className="font-light text-sm leading-7" style={{ color: "rgba(255,255,255,0.4)" }}>{item.desc}</p>
-            </div>
-          ))}
-        </div>
+
       </section>
 
       {/* Divider */}
