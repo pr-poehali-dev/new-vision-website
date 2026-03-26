@@ -506,6 +506,9 @@ export default function Index() {
           </div>
         </div>
 
+        <p className="mt-20 font-roboto font-light text-center" style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)", color: "rgba(184,196,208,0.55)", fontStyle: "italic" }}>
+          То, что видели твои глаза, — это и есть цена твоей жизни
+        </p>
 
       </section>
 
