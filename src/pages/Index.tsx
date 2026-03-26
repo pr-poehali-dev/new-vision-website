@@ -564,7 +564,7 @@ export default function Index() {
           >
             {[
               { icon: "Phone", title: "Телефон", lines: ["+7 (495) 000-00-00", "Пн–Сб: 9:00 – 20:00"] },
-              { icon: "Mail", title: "Email", lines: ["info@noviy-vzglyad.ru", "Ответим в течение дня"] },
+              { icon: "Mail", title: "Email", lines: ["oftalmorus@gmail.com", "Ответим в течение дня"] },
             ].map((item, i) => (
               <div
                 key={i}
