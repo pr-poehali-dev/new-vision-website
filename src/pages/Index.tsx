@@ -563,7 +563,6 @@ export default function Index() {
             }}
           >
             {[
-              { icon: "MapPin", title: "Адрес", lines: ["ул. Ленина, 1", "Москва, Россия"] },
               { icon: "Phone", title: "Телефон", lines: ["+7 (495) 000-00-00", "Пн–Сб: 9:00 – 20:00"] },
               { icon: "Mail", title: "Email", lines: ["info@noviy-vzglyad.ru", "Ответим в течение дня"] },
             ].map((item, i) => (
@@ -571,7 +570,7 @@ export default function Index() {
                 key={i}
                 className="p-10 flex flex-col items-center text-center"
                 style={{
-                  borderRight: i < 2 ? "1px solid rgba(184,196,208,0.12)" : "none",
+                  borderRight: i < 1 ? "1px solid rgba(184,196,208,0.12)" : "none",
                   background: "rgba(15,32,72,0.2)",
                 }}
               >
@@ -588,16 +587,7 @@ export default function Index() {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="mt-16 text-center">
-            <button
-              onClick={() => scrollTo("contacts")}
-              className="px-14 py-5 text-xs tracking-[0.3em] font-medium transition-all duration-300 hover:scale-105 hover:brightness-110"
-              style={{ background: "linear-gradient(135deg, #8a9baa, #b8c4d0)", color: "#03060f" }}
-            >
-              ЗАПИСАТЬСЯ НА ПРИЁМ
-            </button>
-          </div>
+
         </div>
       </section>
 
