@@ -251,7 +251,7 @@ export default function Index() {
             }}
           >
             {[
-              { icon: "Phone", title: "Телефон", lines: ["+7 922 266-09-99", "Пн–Сб: 9:00 – 20:00"], href: ["tel:+79222660999", null] },
+              { icon: "Phone", title: "Телефон", lines: ["89222660999", "Пн–Сб: 9:00 – 20:00"], href: ["tel:+79222660999", null] },
               { icon: "Mail", title: "Email", lines: ["oftalmorus@gmail.com", "Ответим в течение дня"], href: ["mailto:oftalmorus@gmail.com", null] },
             ].map((item, i) => (
               <div
