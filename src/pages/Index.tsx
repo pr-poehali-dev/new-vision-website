@@ -288,7 +288,7 @@ export default function Index() {
       <footer className="py-10 text-center" style={{ borderTop: "1px solid rgba(107,122,153,0.12)" }}>
         <p className="font-roboto text-2xl tracking-widest mb-2" style={{ color: "#1a1a2e" }}>НОВЫЙ ВЗГЛЯД</p>
         <p className="font-light text-xs tracking-widest" style={{ color: "#1f2937" }}>
-          © 2025 Офтальмологическая клиника
+          © 2026 Офтальмологическая клиника
         </p>
       </footer>
 
