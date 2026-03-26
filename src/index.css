@@ -97,14 +97,16 @@
 
   body {
     @apply bg-background text-foreground;
-    background: #060d1f;
+    background: #f5f3f8;
   }
 }
 
 :root {
-  --navy-bg: #060d1f;
-  --gold: #b8c4d0;
-  --gold-light: #dde6ee;
+  --navy-bg: #f5f3f8;
+  --accent: #6b7a99;
+  --accent-light: #e8e4f0;
+  --text-main: #1a1a2e;
+  --text-muted: #6b7280;
 }
 
 .font-roboto {
