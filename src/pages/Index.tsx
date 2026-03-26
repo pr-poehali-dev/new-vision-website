@@ -76,7 +76,7 @@ export default function Index() {
             <span className="font-roboto text-2xl tracking-widest leading-none" style={{ color: "#1a1a2e" }}>
               НОВЫЙ ВЗГЛЯД
             </span>
-            <span className="text-[10px] tracking-[0.25em] mt-0.5 font-montserrat font-light" style={{ color: "#6b7a99" }}>
+            <span className="text-[10px] tracking-[0.25em] mt-0.5 font-montserrat font-light" style={{ color: "#3d4f6b" }}>
               ОФТАЛЬМОЛОГИЯ
             </span>
           </button>
@@ -87,7 +87,7 @@ export default function Index() {
                 key={link.id}
                 onClick={() => scrollTo(link.id)}
                 className="relative text-xs tracking-[0.2em] font-light transition-all duration-300 pb-1"
-                style={{ color: activeSection === link.id ? "#1a1a2e" : "#6b7a99" }}
+                style={{ color: activeSection === link.id ? "#1a1a2e" : "#3d4f6b" }}
               >
                 {link.label}
                 <span
@@ -110,7 +110,7 @@ export default function Index() {
                 key={link.id}
                 onClick={() => scrollTo(link.id)}
                 className="text-left text-sm tracking-[0.2em] py-2 border-b"
-                style={{ color: activeSection === link.id ? "#1a1a2e" : "#6b7a99", borderColor: "rgba(107,122,153,0.15)" }}
+                style={{ color: activeSection === link.id ? "#1a1a2e" : "#3d4f6b", borderColor: "rgba(61,79,107,0.2)" }}
               >
                 {link.label}
               </button>
@@ -123,7 +123,7 @@ export default function Index() {
       <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
         {/* Левая половина — текст */}
         <div className="relative z-10 flex-1 px-10 md:px-20 max-w-3xl">
-          <p className="animate-fade-up opacity-0 text-[10px] md:text-xs tracking-[0.45em] mb-8 font-light" style={{ color: "#6b7a99" }}>
+          <p className="animate-fade-up opacity-0 text-[10px] md:text-xs tracking-[0.45em] mb-8 font-light" style={{ color: "#3d4f6b" }}>
             ОФТАЛЬМОЛОГИЧЕСКАЯ КЛИНИКА
           </p>
 
@@ -134,7 +134,7 @@ export default function Index() {
             Новый взгляд
           </h1>
 
-          <p className="animate-fade-up-delay2 opacity-0 font-roboto font-light text-lg md:text-xl leading-relaxed max-w-md mb-10" style={{ color: "#6b7280" }}>
+          <p className="animate-fade-up-delay2 opacity-0 font-roboto font-light text-lg md:text-xl leading-relaxed max-w-md mb-10" style={{ color: "#374151" }}>
             Мастерство. Точность. Забота о каждом пациенте.
           </p>
 
@@ -186,19 +186,19 @@ export default function Index() {
             className="transition-all duration-1000"
             style={{ opacity: aboutSection.inView ? 1 : 0, transform: aboutSection.inView ? "translateX(0)" : "translateX(-50px)" }}
           >
-            <p className="text-[10px] tracking-[0.35em] mb-6" style={{ color: "#6b7a99" }}>О КЛИНИКЕ</p>
+            <p className="text-[10px] tracking-[0.35em] mb-6" style={{ color: "#3d4f6b" }}>О КЛИНИКЕ</p>
             <h2
               className="font-roboto font-light leading-tight mb-8"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "#1a1a2e" }}
             >
               Точность взгляда —<br />
-              <span style={{ color: "#6b7a99", fontStyle: "italic" }}>наша профессия</span>
+              <span style={{ color: "#3d4f6b", fontStyle: "italic" }}>наша профессия</span>
             </h2>
             <div className="h-px w-16 mb-8" style={{ background: "#6b7a99" }} />
-            <p className="font-light text-base leading-8 mb-6" style={{ color: "#6b7280" }}>
+            <p className="font-light text-base leading-8 mb-6" style={{ color: "#374151" }}>
               Клиника «Новый Взгляд» — это передовые технологии в области офтальмологии и команда врачей высшей квалификации. Мы сочетаем многолетний опыт с новейшим оборудованием.
             </p>
-            <p className="font-light text-base leading-8" style={{ color: "#6b7280" }}>
+            <p className="font-light text-base leading-8" style={{ color: "#374151" }}>
               Каждый пациент для нас — уникальная история. Мы разрабатываем индивидуальный план лечения, чтобы вы видели мир ярко и чётко.
             </p>
           </div>
@@ -218,7 +218,7 @@ export default function Index() {
           </div>
         </div>
 
-        <p className="mt-20 font-roboto font-light text-center" style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)", color: "rgba(107,122,153,0.6)", fontStyle: "italic" }}>
+        <p className="mt-20 font-roboto font-light text-center" style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)", color: "#3d4f6b", fontStyle: "italic" }}>
           То, что видели твои глаза, — это есть цена твоей жизни
         </p>
 
@@ -234,7 +234,7 @@ export default function Index() {
             className="text-center mb-20 transition-all duration-1000"
             style={{ opacity: contactsSection.inView ? 1 : 0, transform: contactsSection.inView ? "translateY(0)" : "translateY(30px)" }}
           >
-            <p className="text-[10px] tracking-[0.35em] mb-6" style={{ color: "#6b7a99" }}>СВЯЗЬ С НАМИ</p>
+            <p className="text-[10px] tracking-[0.35em] mb-6" style={{ color: "#3d4f6b" }}>СВЯЗЬ С НАМИ</p>
             <h2 className="font-roboto font-light" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "#1a1a2e" }}>
               Контакты
             </h2>
@@ -267,11 +267,11 @@ export default function Index() {
                 <h3 className="font-roboto text-lg font-light mb-4" style={{ color: "#1a1a2e" }}>{item.title}</h3>
                 {item.lines.map((line, j) => (
                   item.href[j] ? (
-                    <a key={j} href={item.href[j]!} className="font-light text-sm" style={{ color: j === 0 ? "#1a1a2e" : "#9ca3af", marginBottom: j === 0 ? 4 : 0, display: "block" }}>
+                    <a key={j} href={item.href[j]!} className="font-light text-sm" style={{ color: j === 0 ? "#1a1a2e" : "#4b5563", marginBottom: j === 0 ? 4 : 0, display: "block" }}>
                       {line}
                     </a>
                   ) : (
-                    <p key={j} className="font-light text-sm" style={{ color: j === 0 ? "#1a1a2e" : "#9ca3af", marginBottom: j === 0 ? 4 : 0 }}>
+                    <p key={j} className="font-light text-sm" style={{ color: j === 0 ? "#1a1a2e" : "#4b5563", marginBottom: j === 0 ? 4 : 0 }}>
                       {line}
                     </p>
                   )
@@ -286,7 +286,7 @@ export default function Index() {
       {/* FOOTER */}
       <footer className="py-10 text-center" style={{ borderTop: "1px solid rgba(107,122,153,0.12)" }}>
         <p className="font-roboto text-2xl tracking-widest mb-2" style={{ color: "#1a1a2e" }}>НОВЫЙ ВЗГЛЯД</p>
-        <p className="font-light text-xs tracking-widest" style={{ color: "#9ca3af" }}>
+        <p className="font-light text-xs tracking-widest" style={{ color: "#4b5563" }}>
           © 2025 Офтальмологическая клиника
         </p>
       </footer>
