@@ -563,8 +563,8 @@ export default function Index() {
             }}
           >
             {[
-              { icon: "Phone", title: "Телефон", lines: ["+7 922 266-09-99", "Пн–Сб: 9:00 – 20:00"] },
-              { icon: "Mail", title: "Email", lines: ["oftalmorus@gmail.com", "Ответим в течение дня"] },
+              { icon: "Phone", title: "Телефон", lines: ["+7 922 266-09-99", "Пн–Сб: 9:00 – 20:00"], href: ["tel:+79222660999", null] },
+              { icon: "Mail", title: "Email", lines: ["oftalmorus@gmail.com", "Ответим в течение дня"], href: ["mailto:oftalmorus@gmail.com", null] },
             ].map((item, i) => (
               <div
                 key={i}
@@ -579,9 +579,15 @@ export default function Index() {
                 </div>
                 <h3 className="font-roboto text-lg font-light mb-4" style={{ color: "rgba(221,230,238,0.8)" }}>{item.title}</h3>
                 {item.lines.map((line, j) => (
-                  <p key={j} className="font-light text-sm" style={{ color: j === 0 ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.3)", marginBottom: j === 0 ? 4 : 0 }}>
-                    {line}
-                  </p>
+                  item.href[j] ? (
+                    <a key={j} href={item.href[j]!} className="font-light text-sm" style={{ color: j === 0 ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.3)", marginBottom: j === 0 ? 4 : 0, display: "block" }}>
+                      {line}
+                    </a>
+                  ) : (
+                    <p key={j} className="font-light text-sm" style={{ color: j === 0 ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.3)", marginBottom: j === 0 ? 4 : 0 }}>
+                      {line}
+                    </p>
+                  )
                 ))}
               </div>
             ))}
